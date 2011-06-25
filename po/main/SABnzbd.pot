@@ -12,7 +12,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 7bit\n"
-"POT-Creation-Date: 2011-06-25 09:41+West-Europa (zomertijd)\n"
+"POT-Creation-Date: 2011-06-25 09:53+West-Europa (zomertijd)\n"
 "Generated-By: pygettext.py 1.5\n"
 
 
@@ -559,11 +559,11 @@ msgstr ""
 msgid "URL Fetching failed; %s"
 msgstr ""
 
-#: sabnzbd/misc.py:1022 [Warning message]
+#: sabnzbd/misc.py:1019 [Warning message]
 msgid "pyopenssl module missing, please install for https access"
 msgstr ""
 
-#: sabnzbd/misc.py:1040 [Error message]
+#: sabnzbd/misc.py:1037 [Error message]
 msgid "Error creating SSL key and certificate"
 msgstr ""
 
@@ -1086,103 +1086,103 @@ msgstr ""
 msgid "Error %s: You need to provide a valid username and password."
 msgstr ""
 
-#: sabnzbd/postproc.py:94 [Warning message]
+#: sabnzbd/postproc.py:96 [Warning message]
 msgid "Failed to load postprocessing queue: Wrong version (need:%s, found:%s)"
 msgstr ""
 
-#: sabnzbd/postproc.py:124 [Error message]
+#: sabnzbd/postproc.py:126 [Error message]
 msgid "Failed to remove nzo from postproc queue (id)"
 msgstr ""
 
-#: sabnzbd/postproc.py:222
+#: sabnzbd/postproc.py:224
 msgid "Download failed - Out of your server's retention?"
 msgstr ""
 
-#: sabnzbd/postproc.py:276
+#: sabnzbd/postproc.py:278
 msgid "Cannot create final folder %s"
 msgstr ""
 
-#: sabnzbd/postproc.py:298
+#: sabnzbd/postproc.py:300
 msgid "No post-processing because of failed verification"
 msgstr ""
 
-#: sabnzbd/postproc.py:306
+#: sabnzbd/postproc.py:308
 msgid "Moving"
 msgstr ""
 
-#: sabnzbd/postproc.py:326
+#: sabnzbd/postproc.py:328
 msgid "Sent %s to queue"
 msgstr ""
 
-#: sabnzbd/postproc.py:345 [Error message]
+#: sabnzbd/postproc.py:347 [Error message]
 msgid "Error renaming \"%s\" to \"%s\""
 msgstr ""
 
-#: sabnzbd/postproc.py:364
+#: sabnzbd/postproc.py:366
 msgid "Running script"
 msgstr ""
 
-#: sabnzbd/postproc.py:365
+#: sabnzbd/postproc.py:367
 msgid "Running user script %s"
 msgstr ""
 
-#: sabnzbd/postproc.py:374
+#: sabnzbd/postproc.py:376
 msgid "Ran %s"
 msgstr ""
 
-#: sabnzbd/postproc.py:395
+#: sabnzbd/postproc.py:397
 msgid "More"
 msgstr ""
 
-#: sabnzbd/postproc.py:399
+#: sabnzbd/postproc.py:401
 msgid "View script output"
 msgstr ""
 
-#: sabnzbd/postproc.py:412
+#: sabnzbd/postproc.py:414
 msgid "Download Completed"
 msgstr ""
 
-#: sabnzbd/postproc.py:415 # sabnzbd/postproc.py:424
+#: sabnzbd/postproc.py:417 # sabnzbd/postproc.py:426
 msgid "Download Failed"
 msgstr ""
 
-#: sabnzbd/postproc.py:419 [Error message]
+#: sabnzbd/postproc.py:421 [Error message]
 msgid "Post Processing Failed for %s (%s)"
 msgstr ""
 
-#: sabnzbd/postproc.py:422
+#: sabnzbd/postproc.py:424
 msgid "see logfile"
 msgstr ""
 
-#: sabnzbd/postproc.py:423
+#: sabnzbd/postproc.py:425
 msgid "PostProcessing was aborted (%s)"
 msgstr ""
 
-#: sabnzbd/postproc.py:451 [Error message]
+#: sabnzbd/postproc.py:453 [Error message]
 msgid "Cleanup of %s failed."
 msgstr ""
 
-#: sabnzbd/postproc.py:462 [Error message]
+#: sabnzbd/postproc.py:464 [Error message]
 msgid "Error removing workdir (%s)"
 msgstr ""
 
-#: sabnzbd/postproc.py:474
+#: sabnzbd/postproc.py:476
 msgid "Post-processing"
 msgstr ""
 
-#: sabnzbd/postproc.py:513
+#: sabnzbd/postproc.py:515
 msgid "Some files failed to verify against \"%s\""
 msgstr ""
 
-#: sabnzbd/postproc.py:517
+#: sabnzbd/postproc.py:519
 msgid "[%s] No par2 sets"
 msgstr ""
 
-#: sabnzbd/postproc.py:549 [Error message] # sabnzbd/postproc.py:556 [Error message]
+#: sabnzbd/postproc.py:551 [Error message] # sabnzbd/postproc.py:558 [Error message]
 msgid "Cannot change permissions of %s"
 msgstr ""
 
-#: sabnzbd/postproc.py:604 [Error message] # sabnzbd/postproc.py:679 [Error message]
+#: sabnzbd/postproc.py:609 [Error message] # sabnzbd/postproc.py:684 [Error message]
 msgid "Removing %s failed"
 msgstr ""
 
