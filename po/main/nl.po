@@ -1384,6 +1384,10 @@ msgstr "Downloaden"
 msgid "Get NZB"
 msgstr "Ophalen"
 
+#: sabnzbd/skintext.py:45 [PP status]
+msgid "Checking"
+msgstr "Controle"
+
 #: sabnzbd/skintext.py:46 [#: Config->Scheduler] # sabnzbd/skintext.py:448
 msgid "Frequency"
 msgstr "Frequentie"

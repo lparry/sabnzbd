@@ -653,7 +653,7 @@ class NzbQueue(TryList):
             self.add_to_try_list(server)
 
     @synchronized(NZBQUEUE_LOCK)
-    def register_article(self, article):
+    def register_article(self, article, found=True):
         nzf = article.nzf
         nzo = nzf.nzo
 
@@ -661,7 +661,7 @@ class NzbQueue(TryList):
             logging.debug("Discarding article %s, no longer in queue", article.article)
             return
 
-        file_done, post_done, reset = nzo.remove_article(article)
+        file_done, post_done, reset = nzo.remove_article(article, found)
 
         filename = nzf.filename
 
@@ -677,15 +677,16 @@ class NzbQueue(TryList):
                 else:
                     nzo.next_save = time.time() + nzo.save_timeout
 
-            _type = nzf.type
+            if not nzo.precheck:
+                _type = nzf.type
 
-            # Only start decoding if we have a filename and type
-            if filename and _type:
-                Assembler.do.process((nzo, nzf))
+                # Only start decoding if we have a filename and type
+                if filename and _type:
+                    Assembler.do.process((nzo, nzf))
 
-            else:
-                if file_has_articles(nzf):
-                    logging.warning(Ta('%s -> Unknown encoding'), filename)
+                else:
+                    if file_has_articles(nzf):
+                        logging.warning(Ta('%s -> Unknown encoding'), filename)
 
         if post_done:
             if not self.__nzo_list:
