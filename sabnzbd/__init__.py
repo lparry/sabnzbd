@@ -226,6 +226,8 @@ def initialize(pause_downloader = False, clean_up = False, evalSched=False, repa
     cfg.bandwidth_limit.callback(guard_speedlimit)
     cfg.top_only.callback(guard_top_only)
     cfg.pause_on_post_processing.callback(guard_pause_on_pp)
+    cfg.growl_server.callback(sabnzbd.growler.change_value)
+    cfg.growl_password.callback(sabnzbd.growler.change_value)
 
     ### Set cache limit
     ArticleCache.do.new_limit(cfg.cache_limit.get_int())

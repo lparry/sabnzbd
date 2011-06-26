@@ -78,7 +78,7 @@ import sabnzbd.config as config
 import sabnzbd.cfg
 import sabnzbd.downloader
 from sabnzbd.encoding import unicoder
-from sabnzbd.utils import osx
+import sabnzbd.growler as growler
 
 from threading import Thread
 
@@ -1372,7 +1372,8 @@ def main():
     if not autorestarted:
         launch_a_browser(browser_url)
         if sabnzbd.FOUNDATION: sabnzbd.osxmenu.notify("SAB_Launched", None)
-        osx.sendGrowlMsg('SABnzbd %s' % (sabnzbd.__version__),"http://%s:%s/sabnzbd" % (browserhost, cherryport),osx.NOTIFICATION['startup'])
+        growler.send_notification('SABnzbd %s' % (sabnzbd.__version__),
+                             "http://%s:%s/sabnzbd" % (browserhost, cherryport), 'startup')
         # Now's the time to check for a new version
         check_latest_version()
     autorestarted = False
@@ -1498,8 +1499,7 @@ def main():
     if getattr(sys, 'frozen', None) == 'macosx_app':
         AppHelper.stopEventLoop()
     else:
-        if sabnzbd.DARWIN:
-            osx.sendGrowlMsg('SABnzbd',T('SABnzbd shutdown finished'),osx.NOTIFICATION['startup'])
+        growler.send_notification('SABnzbd',T('SABnzbd shutdown finished'), 'startup')
         os._exit(0)
 
 
