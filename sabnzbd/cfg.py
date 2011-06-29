@@ -211,10 +211,10 @@ nzb_key = OptionStr('misc', 'nzb_key', create_api_key())
 disable_key = OptionBool('misc', 'disable_api_key', False)
 api_warnings = OptionBool('misc', 'api_warnings', True)
 
-quotum_size = OptionStr('misc', 'quotum_size')
-quotum_day = OptionStr('misc', 'quotum_day')
-quotum_resume = OptionBool('misc', 'quotum_resume', False)
-quotum_period = OptionStr('misc', 'quotum_period', 'm')
+quota_size = OptionStr('misc', 'quota_size')
+quota_day = OptionStr('misc', 'quota_day')
+quota_resume = OptionBool('misc', 'quota_resume', False)
+quota_period = OptionStr('misc', 'quota_period', 'm')
 
 #------------------------------------------------------------------------------
 # Set root folders for Folder config-items

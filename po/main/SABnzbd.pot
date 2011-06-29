@@ -12,7 +12,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 7bit\n"
-"POT-Creation-Date: 2011-06-29 20:12+West-Europa (zomertijd)\n"
+"POT-Creation-Date: 2011-06-29 21:03+West-Europa (zomertijd)\n"
 "Generated-By: pygettext.py 1.5\n"
 
 
@@ -214,7 +214,7 @@ msgid "%s missing"
 msgstr ""
 
 #: sabnzbd/bpsmeter.py:215 [Warning message]
-msgid "Quotum spent, pausing downloading"
+msgid "Quota spent, pausing downloading"
 msgstr ""
 
 #: sabnzbd/cfg.py:46
@@ -1742,16 +1742,16 @@ msgstr ""
 msgid "Missing articles"
 msgstr ""
 
-#: sabnzbd/skintext.py:199 [Remaining quotum (displayed in Queue)]
-msgid "Quotum left"
+#: sabnzbd/skintext.py:199 [Remaining quota (displayed in Queue)]
+msgid "Quota left"
 msgstr ""
 
-#: sabnzbd/skintext.py:200 [Manual reset of quotum]
+#: sabnzbd/skintext.py:200 [Manual reset of quota]
 msgid "manual"
 msgstr ""
 
 #: sabnzbd/skintext.py:201
-msgid "Reset Quotum now"
+msgid "Reset Quota now"
 msgstr ""
 
 #: sabnzbd/skintext.py:205 [History page button]
@@ -1786,7 +1786,7 @@ msgstr ""
 msgid "Show All"
 msgstr ""
 
-#: sabnzbd/skintext.py:214 [History table header] # sabnzbd/skintext.py:428 [Size of the download quotum] # sabnzbd/skintext.py:754
+#: sabnzbd/skintext.py:214 [History table header] # sabnzbd/skintext.py:428 [Size of the download quota] # sabnzbd/skintext.py:754
 msgid "Size"
 msgstr ""
 
@@ -2544,19 +2544,19 @@ msgid "Naming"
 msgstr ""
 
 #: sabnzbd/skintext.py:427
-msgid "Quotum"
+msgid "Quota"
 msgstr ""
 
 #: sabnzbd/skintext.py:429
 msgid "How much can be downloaded this month (K/M/G)"
 msgstr ""
 
-#: sabnzbd/skintext.py:430 [Reset day of the download quotum]
+#: sabnzbd/skintext.py:430 [Reset day of the download quota]
 msgid "Reset day"
 msgstr ""
 
 #: sabnzbd/skintext.py:431
-msgid "On which day of the month or week (1=Monday) does your ISP reset the quotum? (Optionally with hh:mm)"
+msgid "On which day of the month or week (1=Monday) does your ISP reset the quota? (Optionally with hh:mm)"
 msgstr ""
 
 #: sabnzbd/skintext.py:432 [Auto-resume download on the reset day]
@@ -2564,15 +2564,15 @@ msgid "Auto resume"
 msgstr ""
 
 #: sabnzbd/skintext.py:433
-msgid "Should downloading resume after the quotum is reset?"
+msgid "Should downloading resume after the quota is reset?"
 msgstr ""
 
-#: sabnzbd/skintext.py:434 [Does the quotum get reset every day, week or month?]
-msgid "Quotum period"
+#: sabnzbd/skintext.py:434 [Does the quota get reset every day, week or month?]
+msgid "Quota period"
 msgstr ""
 
 #: sabnzbd/skintext.py:435
-msgid "Does the quotum get reset each day, week or month?"
+msgid "Does the quota get reset each day, week or month?"
 msgstr ""
 
 #: sabnzbd/skintext.py:439
