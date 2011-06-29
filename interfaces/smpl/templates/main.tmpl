@@ -740,6 +740,16 @@ function lrb(url, extra, refresh)
     d.addErrback(handleServerError);
   }
 
+  function testnotification()
+  {
+    d = doSimpleXMLHttpRequest('config/email/testnotification?session='+session);
+    d.addCallback(function (d)
+    {
+      alert("$T('smpl-notesent')");
+    });
+    d.addErrback(handleServerError);
+  }
+
   function unblock_server(host, port)
   {
     d = doSimpleXMLHttpRequest('connections/unblock_server?server='+host+':'+port+'&session='+session);
@@ -1117,7 +1127,7 @@ function loadingJSON(){
           <li><a class="config" href="#/config/server" onClick="lr('config/server/','', 0, 0);">$T('cmenu-servers')</a> </li>
           <li><a class="config" href="#/config/scheduling/" onClick="lr('config/scheduling/','', 0, 0);">$T('cmenu-scheduling')</a> </li>
           <li><a class="config" href="#/config/rss/" onClick="lr('config/rss/','', 0, 0);">$T('cmenu-rss')</a> </li>
-          <li><a class="config" href="#/config/email/" onClick="lr('config/email/','', 0, 0);">$T('cmenu-email')</a></li>
+          <li><a class="config" href="#/config/email/" onClick="lr('config/email/','', 0, 0);">$T('cmenu-notif')</a></li>
           <li><a class="config" href="#/config/newzbin/" onClick="lr('config/newzbin/', '', 0, 0);">$T('cmenu-newzbin')</a></li>
           <li><a class="config" href="#/config/categories/" onClick="lr('config/categories/', '', 0, 0);">$T('cmenu-cat')</a></li>
           <li><a class="config" href="#/config/sorting/" onClick="lr('config/sorting/', '', 0, 0);">$T('cmenu-sorting')</a></li>

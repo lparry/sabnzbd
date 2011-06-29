@@ -42,6 +42,7 @@ SKIN_TEXT = {
     'post-Verifying'     : TT('Verifying...'), #: PP status
     'post-Downloading'   : TT('Downloading'), #: Pseudo-PP status, in reality used for Queue-status
     'post-Grabbing'      : TT('Get NZB'), #: Pseudo-PP status, in reality used for Grabbing status
+    'post-Checking'      : TT('Checking'), #: PP status
 
     'sch-frequency'      : TT('Frequency'), #:  #: Config->Scheduler
     'sch-action'         : TT('Action'), #:  #: Config->Scheduler
@@ -115,7 +116,7 @@ SKIN_TEXT = {
     'cmenu-servers' : TT('Servers'), #: Main menu item
     'cmenu-scheduling' : TT('Scheduling'), #: Main menu item
     'cmenu-rss' : TT('RSS'), #: Main menu item
-    'cmenu-emailN' : TT('Notifications'), #: Main menu item
+    'cmenu-notif' : TT('Notifications'), #: Main menu item
     'cmenu-email' : TT('Email'), #: Main menu item
     'cmenu-newzbin' : TT('Index Sites'), #: Main menu item
     'cmenu-cat' : TT('Categories'), #: Main menu item
@@ -433,6 +434,8 @@ SKIN_TEXT = {
     'explain-quota_resume' : TT('Should downloading resume after the quota is reset?'),
     'opt-quota_period' : TT('Quota period'), #: Does the quota get reset every day, week or month?
     'explain-quota_period' : TT('Does the quota get reset each day, week or month?'),
+    'opt-pre_check' : TT('Check before download'),
+    'explain-pre_check' : TT('Try to predict successful completion before actual download (slower!)'),
 
 
 # Config->Server
@@ -498,8 +501,7 @@ SKIN_TEXT = {
     'feedSettings' : TT('Settings'), #: Tab title for Config->Feeds
     'filters' : TT('Filters'), #: Tab title for Config->Feeds
 
-# Config->Email
-    'configEmail' : TT('Email Notifications'), #: Main Config page
+    'configEmail' : TT('Notifications'), #: Main Config page
     'emailOptions' : TT('Email Options'), #: Section header
     'opt-email_endjob' : TT('Email Notification On Job Completion'),
     'email-never' : TT('Never'), #: When to send email

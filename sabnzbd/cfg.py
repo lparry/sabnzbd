@@ -211,6 +211,11 @@ nzb_key = OptionStr('misc', 'nzb_key', create_api_key())
 disable_key = OptionBool('misc', 'disable_api_key', False)
 api_warnings = OptionBool('misc', 'api_warnings', True)
 
+growl_server = OptionStr('growl', 'growl_server')
+growl_password = OptionPassword('growl', 'growl_password')
+growl_enable = OptionBool('growl', 'growl_enable', True)
+ntfosd_enable = OptionBool('growl', 'ntfosd_enable', True)
+
 quota_size = OptionStr('misc', 'quota_size')
 quota_day = OptionStr('misc', 'quota_day')
 quota_resume = OptionBool('misc', 'quota_resume', False)

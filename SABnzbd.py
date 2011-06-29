@@ -78,7 +78,7 @@ import sabnzbd.config as config
 import sabnzbd.cfg
 import sabnzbd.downloader
 from sabnzbd.encoding import unicoder
-from sabnzbd.utils import osx
+import sabnzbd.growler as growler
 
 from threading import Thread
 
@@ -1299,7 +1299,8 @@ def main():
                             'tools.sessions.on' : True,
                             'request.show_tracebacks': True,
                             'checker.check_localhost' : bool(consoleLogging),
-                            'error_page.401': sabnzbd.panic.error_page_401
+                            'error_page.401': sabnzbd.panic.error_page_401,
+                            'error_page.404': sabnzbd.panic.error_page_404
                             })
 
 
@@ -1364,15 +1365,16 @@ def main():
 
     if enable_https:
         browser_url = "https://%s:%s/sabnzbd" % (browserhost, cherryport)
-        cherrypy.wsgiserver.REDIRECT_URL = browser_url
     else:
         browser_url = "http://%s:%s/sabnzbd" % (browserhost, cherryport)
+    cherrypy.wsgiserver.REDIRECT_URL = browser_url
 
     sabnzbd.BROWSER_URL = browser_url
     if not autorestarted:
         launch_a_browser(browser_url)
         if sabnzbd.FOUNDATION: sabnzbd.osxmenu.notify("SAB_Launched", None)
-        osx.sendGrowlMsg('SABnzbd %s' % (sabnzbd.__version__),"http://%s:%s/sabnzbd" % (browserhost, cherryport),osx.NOTIFICATION['startup'])
+        growler.send_notification('SABnzbd %s' % (sabnzbd.__version__),
+                             "http://%s:%s/sabnzbd" % (browserhost, cherryport), 'startup')
         # Now's the time to check for a new version
         check_latest_version()
     autorestarted = False
@@ -1498,8 +1500,7 @@ def main():
     if getattr(sys, 'frozen', None) == 'macosx_app':
         AppHelper.stopEventLoop()
     else:
-        if sabnzbd.DARWIN:
-            osx.sendGrowlMsg('SABnzbd',T('SABnzbd shutdown finished'),osx.NOTIFICATION['startup'])
+        growler.send_notification('SABnzbd',T('SABnzbd shutdown finished'), 'startup')
         os._exit(0)
 
 
