@@ -228,6 +228,9 @@ def initialize(pause_downloader = False, clean_up = False, evalSched=False, repa
     cfg.pause_on_post_processing.callback(guard_pause_on_pp)
     cfg.growl_server.callback(sabnzbd.growler.change_value)
     cfg.growl_password.callback(sabnzbd.growler.change_value)
+    cfg.quota_size.callback(guard_quota_size)
+    cfg.quota_day.callback(guard_quota_dp)
+    cfg.quota_period.callback(guard_quota_dp)
 
     ### Set cache limit
     ArticleCache.do.new_limit(cfg.cache_limit.get_int())
@@ -265,7 +268,7 @@ def initialize(pause_downloader = False, clean_up = False, evalSched=False, repa
     Bookmarks()
     rss.init()
 
-    BPSMeter.do.read()
+    paused = BPSMeter.do.read()
 
     PostProcessor()
 
@@ -274,7 +277,7 @@ def initialize(pause_downloader = False, clean_up = False, evalSched=False, repa
 
     Assembler()
 
-    Downloader(pause_downloader)
+    Downloader(pause_downloader or paused)
 
     DirScanner()
 
@@ -413,6 +416,14 @@ def guard_pause_on_pp():
              # if post-processing is active now
     else:
         Downloader.do.resume_from_postproc()
+
+def guard_quota_size():
+    """ Callback for change of quota_size """
+    BPSMeter.do.change_quota()
+
+def guard_quota_dp():
+    """ Callback for change of quota_day or quota_period """
+    scheduler.restart(force=True)
 
 def add_msgid(msgid, pp=None, script=None, cat=None, priority=None, nzbname=None):
     """ Add NZB based on newzbin report number, attributes optional

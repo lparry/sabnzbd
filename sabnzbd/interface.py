@@ -1126,7 +1126,7 @@ SWITCH_LIST = \
              'safe_postproc', 'no_dupes', 'replace_spaces', 'replace_dots', 'replace_illegal', 'auto_browser',
              'ignore_samples', 'pause_on_post_processing', 'quick_check', 'nice', 'ionice',
              'ssl_type', 'pre_script', 'pause_on_pwrar', 'ampm', 'sfv_check', 'folder_rename',
-             'unpack_check'
+             'unpack_check', 'quota_size', 'quota_day', 'quota_resume', 'quota_period'
              )
 
 #------------------------------------------------------------------------------
@@ -2178,6 +2178,13 @@ class ConnectionInfo(object):
         template = Template(file=os.path.join(self.__web_dir, 'connection_info.tmpl'),
                             filter=FILTER, searchList=[header], compilerSettings=DIRECTIVES)
         return template.respond()
+
+    @cherrypy.expose
+    def reset_quota(self, **kwargs):
+        msg = check_session(kwargs)
+        if msg: return msg
+        BPSMeter.do.reset_quota(force=True)
+        raise dcRaiser(self.__root, kwargs)
 
     @cherrypy.expose
     def disconnect(self, **kwargs):

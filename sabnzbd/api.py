@@ -591,6 +591,9 @@ def _api_rss_now(name, output, kwargs):
     scheduler.force_rss()
     return report(output)
 
+def _api_reset_quota(name, output, kwargs):
+    """ Reset quota left """
+    BPSMeter.do.reset_quota(force=True)
 
 def _api_undefined(name, output, kwargs):
     """ API: accepts output """
@@ -725,7 +728,8 @@ _api_table = {
     'eval_sort'       : _api_eval_sort,
     'watched_now'     : _api_watched_now,
     'rss_now'         : _api_rss_now,
-    'browse'          : _api_browse
+    'browse'          : _api_browse,
+    'reset_quota'    : _api_reset_quota
 }
 
 _api_queue_table = {
@@ -1470,6 +1474,9 @@ def build_header(prim):
     header['mb']       = "%.2f" % (bytes / MEBI)
     header['sizeleft']   = format_bytes(bytesleft)
     header['size']       = format_bytes(bytes)
+    header['quota'] = to_units(BPSMeter.do.quota)
+    header['have_quota'] = bool(BPSMeter.do.quota > 0.0)
+    header['left_quota'] = to_units(BPSMeter.do.left)
 
     status = ''
     if Downloader.do.paused:
