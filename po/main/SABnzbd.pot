@@ -12,7 +12,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 7bit\n"
-"POT-Creation-Date: 2011-06-29 21:35+West-Europa (zomertijd)\n"
+"POT-Creation-Date: 2011-06-30 20:33+West-Europa (zomertijd)\n"
 "Generated-By: pygettext.py 1.5\n"
 
 
@@ -80,23 +80,23 @@ msgstr ""
 msgid "Invalid server address."
 msgstr ""
 
-#: sabnzbd/utils/servertests.py:115
+#: sabnzbd/utils/servertests.py:119
 msgid "Server requires username and password."
 msgstr ""
 
-#: sabnzbd/utils/servertests.py:118
+#: sabnzbd/utils/servertests.py:122
 msgid "Connection Successful!"
 msgstr ""
 
-#: sabnzbd/utils/servertests.py:121
+#: sabnzbd/utils/servertests.py:125
 msgid "Authentication failed, check username/password."
 msgstr ""
 
-#: sabnzbd/utils/servertests.py:124
+#: sabnzbd/utils/servertests.py:128
 msgid "Too many connections, please pause downloading or try again later"
 msgstr ""
 
-#: sabnzbd/utils/servertests.py:127
+#: sabnzbd/utils/servertests.py:131
 msgid "Could not determine connection result (%s)"
 msgstr ""
 
@@ -140,40 +140,40 @@ msgstr ""
 msgid "Loading %s failed"
 msgstr ""
 
-#: sabnzbd/api.py:1393 # sabnzbd/osxmenu.py:189 # sabnzbd/skintext.py:66 [No value, used in dropdown menus]
+#: sabnzbd/api.py:1396 # sabnzbd/osxmenu.py:189 # sabnzbd/skintext.py:66 [No value, used in dropdown menus]
 #: sabnzbd/skintext.py:637 [Job details page, select no files]
 msgid "None"
 msgstr ""
 
-#: sabnzbd/api.py:1395 # sabnzbd/interface.py:93 # sabnzbd/skintext.py:65 [Default value, used in dropdown menus]
+#: sabnzbd/api.py:1398 # sabnzbd/interface.py:93 # sabnzbd/skintext.py:65 [Default value, used in dropdown menus]
 msgid "Default"
 msgstr ""
 
-#: sabnzbd/api.py:1451 # sabnzbd/interface.py:2174
+#: sabnzbd/api.py:1454 # sabnzbd/interface.py:2175
 msgid "WARNING:"
 msgstr ""
 
-#: sabnzbd/api.py:1451 # sabnzbd/interface.py:2174 # sabnzbd/interface.py:2274
+#: sabnzbd/api.py:1454 # sabnzbd/interface.py:2175 # sabnzbd/interface.py:2275
 msgid "ERROR:"
 msgstr ""
 
-#: sabnzbd/api.py:1512
+#: sabnzbd/api.py:1515
 msgid "unknown"
 msgstr ""
 
-#: sabnzbd/api.py:1539 [Error message]
+#: sabnzbd/api.py:1542 [Error message]
 msgid "Failed to compile regex for search term: %s"
 msgstr ""
 
-#: sabnzbd/api.py:1726 [Single letter abbreviation of day]
+#: sabnzbd/api.py:1729 [Single letter abbreviation of day]
 msgid "d"
 msgstr ""
 
-#: sabnzbd/api.py:1727 [Single letter abbreviation of hour]
+#: sabnzbd/api.py:1730 [Single letter abbreviation of hour]
 msgid "h"
 msgstr ""
 
-#: sabnzbd/api.py:1728 [Single letter abbreviation of minute]
+#: sabnzbd/api.py:1731 [Single letter abbreviation of minute]
 msgid "m"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 msgid "%s is not a valid email address"
 msgstr ""
 
-#: sabnzbd/cfg.py:54 # sabnzbd/interface.py:1461
+#: sabnzbd/cfg.py:54 # sabnzbd/interface.py:1462
 msgid "Server address required"
 msgstr ""
 
@@ -241,23 +241,23 @@ msgstr ""
 msgid "Invalid stage logging in history for %s"
 msgstr ""
 
-#: sabnzbd/decoder.py:97
+#: sabnzbd/decoder.py:101
 msgid "Decoding %s failed"
 msgstr ""
 
-#: sabnzbd/decoder.py:108
+#: sabnzbd/decoder.py:112
 msgid "CRC Error in %s (%s -> %s)"
 msgstr ""
 
-#: sabnzbd/decoder.py:120
+#: sabnzbd/decoder.py:124
 msgid "Badly formed yEnc article in %s"
 msgstr ""
 
-#: sabnzbd/decoder.py:130
+#: sabnzbd/decoder.py:138
 msgid "Unknown Error while decoding %s"
 msgstr ""
 
-#: sabnzbd/decoder.py:180
+#: sabnzbd/decoder.py:192
 msgid "%s => missing from all servers, discarding"
 msgstr ""
 
@@ -307,11 +307,11 @@ msgstr ""
 msgid "Connecting %s@%s:%s failed, message=%s"
 msgstr ""
 
-#: sabnzbd/downloader.py:567 # sabnzbd/downloader.py:570
+#: sabnzbd/downloader.py:572 # sabnzbd/downloader.py:575
 msgid "Server %s requires user/password"
 msgstr ""
 
-#: sabnzbd/downloader.py:744
+#: sabnzbd/downloader.py:750
 msgid "Shutting down"
 msgstr ""
 
@@ -441,85 +441,85 @@ msgstr ""
 msgid "&nbsp<br />SABnzbd shutdown finished.<br />Wait for about 5 second and then click the button below.<br /><br /><strong><a href=\"..\">Refresh</a></strong><br />"
 msgstr ""
 
-#: sabnzbd/interface.py:1573 [Used as default Feed name in Config->RSS] # sabnzbd/skintext.py:481 [Config->RSS, tab header]
+#: sabnzbd/interface.py:1574 [Used as default Feed name in Config->RSS] # sabnzbd/skintext.py:481 [Config->RSS, tab header]
 msgid "Feed"
 msgstr ""
 
-#: sabnzbd/interface.py:1785 # sabnzbd/skintext.py:80
+#: sabnzbd/interface.py:1786 # sabnzbd/skintext.py:80
 msgid "Daily"
 msgstr ""
 
-#: sabnzbd/interface.py:1786 # sabnzbd/skintext.py:81
+#: sabnzbd/interface.py:1787 # sabnzbd/skintext.py:81
 msgid "Monday"
 msgstr ""
 
-#: sabnzbd/interface.py:1787 # sabnzbd/skintext.py:82
+#: sabnzbd/interface.py:1788 # sabnzbd/skintext.py:82
 msgid "Tuesday"
 msgstr ""
 
-#: sabnzbd/interface.py:1788 # sabnzbd/skintext.py:83
+#: sabnzbd/interface.py:1789 # sabnzbd/skintext.py:83
 msgid "Wednesday"
 msgstr ""
 
-#: sabnzbd/interface.py:1789 # sabnzbd/skintext.py:84
+#: sabnzbd/interface.py:1790 # sabnzbd/skintext.py:84
 msgid "Thursday"
 msgstr ""
 
-#: sabnzbd/interface.py:1790 # sabnzbd/skintext.py:85
+#: sabnzbd/interface.py:1791 # sabnzbd/skintext.py:85
 msgid "Friday"
 msgstr ""
 
-#: sabnzbd/interface.py:1791 # sabnzbd/skintext.py:86
+#: sabnzbd/interface.py:1792 # sabnzbd/skintext.py:86
 msgid "Saturday"
 msgstr ""
 
-#: sabnzbd/interface.py:1792 # sabnzbd/skintext.py:87
+#: sabnzbd/interface.py:1793 # sabnzbd/skintext.py:87
 msgid "Sunday"
 msgstr ""
 
-#: sabnzbd/interface.py:2166
+#: sabnzbd/interface.py:2167
 msgid "&nbsp;Resolving address"
 msgstr ""
 
-#: sabnzbd/interface.py:2274
+#: sabnzbd/interface.py:2275
 msgid "Incorrect parameter"
 msgstr ""
 
-#: sabnzbd/interface.py:2274 # sabnzbd/interface.py:2300
-#: sabnzbd/interface.py:2324 # sabnzbd/interface.py:2341
-#: sabnzbd/interface.py:2426 # sabnzbd/interface.py:2445 # sabnzbd/skintext.py:98 [Generic "Back" button]
+#: sabnzbd/interface.py:2275 # sabnzbd/interface.py:2301
+#: sabnzbd/interface.py:2325 # sabnzbd/interface.py:2342
+#: sabnzbd/interface.py:2427 # sabnzbd/interface.py:2446 # sabnzbd/skintext.py:98 [Generic "Back" button]
 msgid "Back"
 msgstr ""
 
-#: sabnzbd/interface.py:2341
+#: sabnzbd/interface.py:2342
 msgid "Job \"%s\" was re-added to the queue"
 msgstr ""
 
-#: sabnzbd/interface.py:2426
+#: sabnzbd/interface.py:2427
 msgid "Jobs marked with a '*' will not be automatically downloaded."
 msgstr ""
 
-#: sabnzbd/interface.py:2426 # sabnzbd/skintext.py:495 [Config->RSS section header]
+#: sabnzbd/interface.py:2427 # sabnzbd/skintext.py:495 [Config->RSS section header]
 msgid "Matched"
 msgstr ""
 
-#: sabnzbd/interface.py:2427
+#: sabnzbd/interface.py:2428
 msgid "Not matched"
 msgstr ""
 
-#: sabnzbd/interface.py:2427 # sabnzbd/skintext.py:497 [Config->RSS section header]
+#: sabnzbd/interface.py:2428 # sabnzbd/skintext.py:497 [Config->RSS section header]
 msgid "Downloaded"
 msgstr ""
 
-#: sabnzbd/interface.py:2445
+#: sabnzbd/interface.py:2446
 msgid "Downloaded so far"
 msgstr ""
 
-#: sabnzbd/interface.py:2494 # sabnzbd/interface.py:2498
+#: sabnzbd/interface.py:2495 # sabnzbd/interface.py:2499
 msgid "Incorrect value for %s: %s"
 msgstr ""
 
-#: sabnzbd/interface.py:2524 # sabnzbd/skintext.py:534
+#: sabnzbd/interface.py:2525 # sabnzbd/skintext.py:534
 msgid "Test Notification"
 msgstr ""
 
@@ -809,63 +809,63 @@ msgstr ""
 msgid "Error while adding %s, removing"
 msgstr ""
 
-#: sabnzbd/nzbqueue.py:685 [Warning message]
+#: sabnzbd/nzbqueue.py:686 [Warning message]
 msgid "%s -> Unknown encoding"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:403 [Warning message]
+#: sabnzbd/nzbstuff.py:405 [Warning message]
 msgid "File %s is empty, skipping"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:431 [Warning message]
+#: sabnzbd/nzbstuff.py:433 [Warning message]
 msgid "Failed to import %s files from %s"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:649 [Warning message] # sabnzbd/nzbstuff.py:654 [Warning message]
+#: sabnzbd/nzbstuff.py:658 [Warning message] # sabnzbd/nzbstuff.py:663 [Warning message]
 msgid "Invalid NZB file %s, skipping (reason=%s, line=%s)"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:662 [Warning message]
+#: sabnzbd/nzbstuff.py:671 [Warning message]
 msgid "Empty NZB file %s"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:721 [Warning message]
+#: sabnzbd/nzbstuff.py:730 [Warning message]
 msgid "Ignoring duplicate NZB \"%s\""
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:726 [Warning message]
+#: sabnzbd/nzbstuff.py:735 [Warning message]
 msgid "Pausing duplicate NZB \"%s\""
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:904 [Queue indicator for duplicate job]
+#: sabnzbd/nzbstuff.py:913 [Queue indicator for duplicate job]
 msgid "DUPLICATE"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:906 [Queue indicator for encrypted job]
+#: sabnzbd/nzbstuff.py:915 [Queue indicator for encrypted job]
 msgid "ENCRYPTED"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:908 [Queue indicator for oversized job]
+#: sabnzbd/nzbstuff.py:917 [Queue indicator for oversized job]
 msgid "TOO LARGE"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:963
+#: sabnzbd/nzbstuff.py:995
 msgid "Downloaded in %s at an average of %sB/s"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:969
+#: sabnzbd/nzbstuff.py:1001
 msgid "%s articles were malformed"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:971
+#: sabnzbd/nzbstuff.py:1003
 msgid "%s articles were missing"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:973
+#: sabnzbd/nzbstuff.py:1005
 msgid "%s articles had non-matching duplicates"
 msgstr ""
 
-#: sabnzbd/nzbstuff.py:1003 [Error message]
+#: sabnzbd/nzbstuff.py:1035 [Error message]
 msgid "Error importing %s"
 msgstr ""
 
@@ -1098,95 +1098,99 @@ msgstr ""
 msgid "Failed to remove nzo from postproc queue (id)"
 msgstr ""
 
-#: sabnzbd/postproc.py:224
+#: sabnzbd/postproc.py:239
+msgid "Download would not be successful, only %s available"
+msgstr ""
+
+#: sabnzbd/postproc.py:241
 msgid "Download failed - Out of your server's retention?"
 msgstr ""
 
-#: sabnzbd/postproc.py:278
+#: sabnzbd/postproc.py:295
 msgid "Cannot create final folder %s"
 msgstr ""
 
-#: sabnzbd/postproc.py:300
+#: sabnzbd/postproc.py:317
 msgid "No post-processing because of failed verification"
 msgstr ""
 
-#: sabnzbd/postproc.py:308
+#: sabnzbd/postproc.py:325
 msgid "Moving"
 msgstr ""
 
-#: sabnzbd/postproc.py:328
+#: sabnzbd/postproc.py:345
 msgid "Sent %s to queue"
 msgstr ""
 
-#: sabnzbd/postproc.py:347 [Error message]
+#: sabnzbd/postproc.py:364 [Error message]
 msgid "Error renaming \"%s\" to \"%s\""
 msgstr ""
 
-#: sabnzbd/postproc.py:366
+#: sabnzbd/postproc.py:383
 msgid "Running script"
 msgstr ""
 
-#: sabnzbd/postproc.py:367
+#: sabnzbd/postproc.py:384
 msgid "Running user script %s"
 msgstr ""
 
-#: sabnzbd/postproc.py:376
+#: sabnzbd/postproc.py:393
 msgid "Ran %s"
 msgstr ""
 
-#: sabnzbd/postproc.py:397
+#: sabnzbd/postproc.py:414
 msgid "More"
 msgstr ""
 
-#: sabnzbd/postproc.py:401
+#: sabnzbd/postproc.py:418
 msgid "View script output"
 msgstr ""
 
-#: sabnzbd/postproc.py:414
+#: sabnzbd/postproc.py:431
 msgid "Download Completed"
 msgstr ""
 
-#: sabnzbd/postproc.py:417 # sabnzbd/postproc.py:426
+#: sabnzbd/postproc.py:434 # sabnzbd/postproc.py:443
 msgid "Download Failed"
 msgstr ""
 
-#: sabnzbd/postproc.py:421 [Error message]
+#: sabnzbd/postproc.py:438 [Error message]
 msgid "Post Processing Failed for %s (%s)"
 msgstr ""
 
-#: sabnzbd/postproc.py:424
+#: sabnzbd/postproc.py:441
 msgid "see logfile"
 msgstr ""
 
-#: sabnzbd/postproc.py:425
+#: sabnzbd/postproc.py:442
 msgid "PostProcessing was aborted (%s)"
 msgstr ""
 
-#: sabnzbd/postproc.py:453 [Error message]
+#: sabnzbd/postproc.py:470 [Error message]
 msgid "Cleanup of %s failed."
 msgstr ""
 
-#: sabnzbd/postproc.py:464 [Error message]
+#: sabnzbd/postproc.py:481 [Error message]
 msgid "Error removing workdir (%s)"
 msgstr ""
 
-#: sabnzbd/postproc.py:476
+#: sabnzbd/postproc.py:493
 msgid "Post-processing"
 msgstr ""
 
-#: sabnzbd/postproc.py:515
+#: sabnzbd/postproc.py:532
 msgid "Some files failed to verify against \"%s\""
 msgstr ""
 
-#: sabnzbd/postproc.py:519
+#: sabnzbd/postproc.py:536
 msgid "[%s] No par2 sets"
 msgstr ""
 
-#: sabnzbd/postproc.py:551 [Error message] # sabnzbd/postproc.py:558 [Error message]
+#: sabnzbd/postproc.py:568 [Error message] # sabnzbd/postproc.py:575 [Error message]
 msgid "Cannot change permissions of %s"
 msgstr ""
 
-#: sabnzbd/postproc.py:609 [Error message] # sabnzbd/postproc.py:684 [Error message]
+#: sabnzbd/postproc.py:626 [Error message] # sabnzbd/postproc.py:701 [Error message]
 msgid "Removing %s failed"
 msgstr ""
 
