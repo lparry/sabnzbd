@@ -258,12 +258,12 @@ if os.name == 'nt':
 else:
     NSIS = '-'
 
-BzrRevertApp =  Bazaar + ' revert '
+BzrRevertApp =  Bazaar + ' revert --no-backup '
 BzrUpdateApp = Bazaar + ' update '
-BzrRevert =  Bazaar + ' revert ' + VERSION_FILE
+BzrRevert =  Bazaar + ' revert --no-backup ' + VERSION_FILE
 BzrVersion = Bazaar + ' version-info'
 
-if not (BzrVersion and BzrRevert and ZipCmd and UnZipCmd and NSIS):
+if not (Bazaar and ZipCmd and UnZipCmd and NSIS):
     exit(1)
 
 if len(sys.argv) < 2:
@@ -367,6 +367,10 @@ if target == 'app':
     #build SABnzbd.py
     sys.argv[1] = 'py2app'
 
+    # Due to ApplePython bug
+    sys.argv.append('-p');
+    sys.argv.append('email');
+
     APP = ['SABnzbd.py']
     DATA_FILES = ['interfaces', 'locale', 'email', ('',glob.glob("osx/resources/*"))]
 
@@ -379,7 +383,7 @@ if target == 'app':
             LSTypeIsPackage = 0,
             NSPersistentStoreTypeKey = 'Binary',
     )
-    OPTIONS = {'argv_emulation': True, 'iconfile': 'osx/resources/sabnzbdplus.icns','plist': {
+    OPTIONS = {'argv_emulation': False, 'iconfile': 'osx/resources/sabnzbdplus.icns','plist': {
        'NSUIElement':1,
        'CFBundleShortVersionString':release,
        'NSHumanReadableCopyright':'The SABnzbd-Team',
@@ -405,10 +409,10 @@ if target == 'app':
     #copy builded app to mounted sparseimage
     os.system("cp -r dist/SABnzbd.app /Volumes/%s/>/dev/null" % volume)
 
-    #Create src tar.gz
-    #os.system('tar -czf %s --exclude ".bzr" --exclude "sab*.zip" --exclude "SAB*.tar.gz" --exclude "*.cmd" --exclude "*.pyc" '
-    #          '--exclude "*.sparseimage" --exclude "dist" --exclude "build" --exclude "*.nsi" --exclude "win"'
-    #          './ >/dev/null' % (fileOSr) )
+    print 'Create src %s' % fileOSr
+    os.system('tar -czf %s --exclude ".bzr*" --exclude "sab*.zip" --exclude "SAB*.tar.gz" --exclude "*.cmd" --exclude "*.pyc" '
+              '--exclude "*.sparseimage" --exclude "dist" --exclude "build" --exclude "*.nsi" --exclude "win" --exclude "*.dmg" '
+              './ >/dev/null' % (fileOSr) )
 
     # Copy README.txt
     os.system("cp README.rtf /Volumes/%s/" % volume)

@@ -37,7 +37,7 @@ except ValueError:
     print "Sorry, requires Python module Cheetah 2.0rc7 or higher."
     sys.exit(1)
 except:
-    print "The following modules need to be installed: Cheetah, cherrypy(included, unpack the zip)"
+    print "The Python module Cheetah is required"
     sys.exit(1)
 
 import cherrypy
@@ -62,8 +62,8 @@ except:
         else:
             SQLITE_DLL = False
 
-import sabnzbd.lang
 import sabnzbd
+import sabnzbd.lang
 import sabnzbd.interface
 from sabnzbd.constants import *
 import sabnzbd.newsunpack
@@ -77,7 +77,7 @@ import sabnzbd.scheduler as scheduler
 import sabnzbd.config as config
 import sabnzbd.cfg
 import sabnzbd.downloader
-from sabnzbd.encoding import unicoder
+from sabnzbd.encoding import unicoder, latin1
 import sabnzbd.growler as growler
 
 from threading import Thread
@@ -744,6 +744,12 @@ def commandline_handler(frozen=True):
     serv_opts = [os.path.normpath(os.path.abspath(sys.argv[0]))]
     upload_nzbs = []
 
+    # OSX binary: get rid of the weird -psn_0_123456 parameter
+    for arg in sys.argv:
+        if arg.startswith('-psn_'):
+            sys.argv.remove(arg)
+            break
+
     # Ugly hack to remove the extra "SABnzbd*" parameter the Windows binary
     # gets when it's restarted
     if len(sys.argv) > 1 and \
@@ -763,7 +769,7 @@ def commandline_handler(frozen=True):
                                     'weblogging=', 'server=', 'templates',
                                     'template2', 'browser=', 'config-file=', 'force',
                                     'version', 'https=', 'autorestarted', 'repair', 'repair-all',
-                                    'log-all', 'no-login', 'pid=', 'new',
+                                    'log-all', 'no-login', 'pid=', 'new', 'sessions',
                                     # Below Win32 Service options
                                     'password=', 'username=', 'startup=', 'perfmonini=', 'perfmondll=',
                                     'interactive', 'wait=',
@@ -810,6 +816,7 @@ def get_f_option(opts):
 #------------------------------------------------------------------------------
 def main():
     global LOG_FLAG
+    import sabnzbd  # Due to ApplePython bug
 
     autobrowser = None
     autorestarted = False
@@ -835,6 +842,7 @@ def main():
     re_argv = [sys.argv[0]]
     pid_path = None
     new_instance = False
+    force_sessions = False
 
     service, sab_opts, serv_opts, upload_nzbs = commandline_handler()
 
@@ -915,6 +923,8 @@ def main():
             re_argv.append(arg)
         elif opt in ('--new',):
             new_instance = True
+        elif opt in ('--sessions',):
+            force_sessions = True
 
     sabnzbd.MY_FULLNAME = os.path.normpath(os.path.abspath(sabnzbd.MY_FULLNAME))
     sabnzbd.MY_NAME = os.path.basename(sabnzbd.MY_FULLNAME)
@@ -1174,6 +1184,7 @@ def main():
     else:
         logging.info('Platform = %s', os.name)
     logging.info('Python-version = %s', sys.version)
+    logging.info('Arguments = %s', sabnzbd.CMDLINE)
 
     # OSX 10.5 I/O priority setting
     if sabnzbd.DARWIN:
@@ -1287,6 +1298,14 @@ def main():
         sabnzbd.cfg.username.set('')
         sabnzbd.cfg.password.set('')
 
+    # Fix leakage in memory-based CherryPy session support by using file-based.
+    # However, we don't really need session support.
+    if force_sessions:
+        sessions = sabnzbd.misc.create_real_path('sessions', sabnzbd.cfg.admin_dir.get_path(), 'sessions')[1]
+        sabnzbd.misc.remove_all(sessions, 'session-*.lock', keep_folder=True)
+    else:
+        sessions = None
+
     cherrypy.config.update({'server.environment': 'production',
                             'server.socket_host': cherryhost,
                             'server.socket_port': cherryport,
@@ -1296,7 +1315,10 @@ def main():
                             'engine.reexec_retry' : 100,
                             'tools.encode.on' : True,
                             'tools.gzip.on' : True,
-                            'tools.sessions.on' : True,
+                            'tools.sessions.on' : bool(sessions),
+                            'tools.sessions.storage_type' : 'file',
+                            'tools.sessions.storage_path' : sessions,
+                            'tools.sessions.timeout' : 60,
                             'request.show_tracebacks': True,
                             'checker.check_localhost' : bool(consoleLogging),
                             'error_page.401': sabnzbd.panic.error_page_401,
@@ -1372,7 +1394,9 @@ def main():
     sabnzbd.BROWSER_URL = browser_url
     if not autorestarted:
         launch_a_browser(browser_url)
-        if sabnzbd.FOUNDATION: sabnzbd.osxmenu.notify("SAB_Launched", None)
+        if sabnzbd.FOUNDATION:
+            import sabnzbd.osxmenu
+            sabnzbd.osxmenu.notify("SAB_Launched", None)
         growler.send_notification('SABnzbd %s' % (sabnzbd.__version__),
                              "http://%s:%s/sabnzbd" % (browserhost, cherryport), 'startup')
         # Now's the time to check for a new version
@@ -1622,6 +1646,8 @@ def HandleCommandLine(allow_service=True):
 # Platform specific startup code
 #
 if __name__ == '__main__':
+
+    sabnzbd.CMDLINE = ', '.join(['"%s"' % latin1(p) for p in sys.argv])
 
     if sabnzbd.WIN32:
         if not HandleCommandLine(allow_service=not hasattr(sys, "frozen")):

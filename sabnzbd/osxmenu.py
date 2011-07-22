@@ -54,7 +54,7 @@ from sabnzbd.api import check_trans
 
 status_icons = {'idle':'../Resources/sab_idle.png','pause':'../Resources/sab_pause.png','clicked':'../Resources/sab_clicked.png'}
 start_time = NSDate.date()
-debug = 1
+debug = 0
 
 
 class SABnzbdDelegate(NSObject):
@@ -705,22 +705,18 @@ class SABnzbdDelegate(NSObject):
     def application_openFiles_(self, nsapp, filenames):
         #logging.info('[osx] file open')
         #logging.info('[osx] file : %s' % (filenames))
-        pp = None
-        script = None
-        cat = None
-        priority = None
         for name in filenames :
-            #logging.info('[osx] processing : %s' % (name))
+            logging.info('[osx] receiving from OSX : %s' % name)
             if os.path.exists(name):
                 fn = get_filename(name)
                 #logging.info('[osx] filename : %s' % (fn))
                 if fn:
-                    if get_ext(name) in ('.zip','.rar', '.gz'):
+                    if get_ext(name) in ('.zip', '.rar'):
                         #logging.info('[osx] archive')
-                        dirscanner.ProcessArchiveFile(fn, name, pp=pp, script=script, cat=cat, priority=priority, keep=True)
-                    elif get_ext(name) in ('.nzb'):
+                        dirscanner.ProcessArchiveFile(fn, name, keep=True)
+                    elif get_ext(name) in ('.nzb', '.gz'):
                         #logging.info('[osx] nzb')
-                        dirscanner.ProcessSingleFile(fn, name, pp=pp, script=script, cat=cat, priority=priority, keep=True)
+                        dirscanner.ProcessSingleFile(fn, name, keep=True)
         #logging.info('opening done')
 
     def applicationShouldTerminate_(self, sender):
