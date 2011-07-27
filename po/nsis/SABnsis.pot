@@ -13,55 +13,75 @@ msgstr ""
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 7bit\n"
 
-#: NSIS_Installer.nsi:350
+#: NSIS_Installer.nsi:407
 msgid "Start SABnzbd (hidden)"
 msgstr ""
 
-#: NSIS_Installer.nsi:359
+#: NSIS_Installer.nsi:416
 msgid "Show Release Notes"
 msgstr ""
 
-#: NSIS_Installer.nsi:368
+#: NSIS_Installer.nsi:425
 msgid "Support the project, Donate!"
 msgstr ""
 
-#: NSIS_Installer.nsi:377
+#: NSIS_Installer.nsi:434
 msgid "Please close \"SABnzbd.exe\" first"
 msgstr ""
 
-#: NSIS_Installer.nsi:386
+#: NSIS_Installer.nsi:443
 msgid "                  >>>> WARNING <<<<\\r\\n\\r\\nPlease, first check the release notes or go to http://wiki.sabnzbd.org/introducing-0-6-0 !"
 msgstr ""
 
-#: NSIS_Installer.nsi:395
+#: NSIS_Installer.nsi:452
 msgid "This will uninstall SABnzbd from your system"
 msgstr ""
 
-#: NSIS_Installer.nsi:404
+#: NSIS_Installer.nsi:461
 msgid "Run at startup"
 msgstr ""
 
-#: NSIS_Installer.nsi:413
+#: NSIS_Installer.nsi:470
 msgid "Desktop Icon"
 msgstr ""
 
-#: NSIS_Installer.nsi:422
+#: NSIS_Installer.nsi:479
 msgid "NZB File association"
 msgstr ""
 
-#: NSIS_Installer.nsi:431
+#: NSIS_Installer.nsi:488
 msgid "Delete Program"
 msgstr ""
 
-#: NSIS_Installer.nsi:440
+#: NSIS_Installer.nsi:497
 msgid "Delete Settings"
 msgstr ""
 
-#: NSIS_Installer.nsi:449
+#: NSIS_Installer.nsi:506
 msgid "Delete Logs"
 msgstr ""
 
-#: NSIS_Installer.nsi:458
+#: NSIS_Installer.nsi:515
 msgid "Delete Cache"
+msgstr ""
+
+#: NSIS_Installer.nsi:524
+msgid "This system requires the Microsoft runtime library VC90 to be installed first. Do you want to do that now?"
+msgstr ""
+
+#: NSIS_Installer.nsi:533
+msgid "Downloading Microsoft runtime installer..."
+msgstr ""
+
+#: NSIS_Installer.nsi:542
+msgid "Download error, retry?"
+msgstr ""
+
+#: NSIS_Installer.nsi:551
+msgid "Cannot install without runtime library, retry?"
+msgstr ""
+
+#: NSIS_Installer.nsi:560
+msgid "You cannot overwrite an existing installation. \\n\\nClick `OK` to remove the previous version or `Cancel` to cancel this upgrade."
 msgstr ""
 
