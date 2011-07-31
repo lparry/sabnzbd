@@ -140,21 +140,39 @@ class PostProcessor(Thread):
         """ Return list of NZOs that still need to be processed """
         return [nzo for nzo in self.history_queue if nzo.work_name]
 
+    def get_path(self, nzo_id):
+        """ Return download path for given nzo_id or None when not found """
+        for nzo in self.history_queue:
+            if nzo.nzo_id == nzo_id:
+                return nzo.downpath
+        return None
+
     def run(self):
         """ Actual processing """
-        while 1:
+        check_eoq = False
+
+        while not self.__stop:
             self.__busy = False
-            if self.queue.empty(): handle_empty_queue()
 
-            while (not self.__stop) and self.paused:
+            if self.paused:
                 time.sleep(5)
+                continue
 
-            ## Get a job from the queue, quit on empty job
-            nzo = self.queue.get()
-            if not nzo: break
+            try:
+                nzo = self.queue.get(timeout=3)
+            except Queue.Empty:
+                if check_eoq:
+                    check_eoq = False
+                    handle_empty_queue()
+                continue
 
-            ## This job was already deleted.
+            ## Stop job
+            if not nzo:
+                continue
+
+            ## Job was already deleted.
             if not nzo.work_name:
+                check_eoq = True
                 continue
 
             ## Flag NZO as being processed
@@ -168,6 +186,7 @@ class PostProcessor(Thread):
             self.__busy = True
             if process_job(nzo):
                 self.remove(nzo)
+            check_eoq = True
 
             ## Allow download to proceed
             sabnzbd.downloader.Downloader.do.resume_from_postproc()
