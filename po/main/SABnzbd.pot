@@ -12,7 +12,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 7bit\n"
-"POT-Creation-Date: 2011-08-03 22:14+West-Europa (zomertijd)\n"
+"POT-Creation-Date: 2011-08-14 13:18+West-Europa (zomertijd)\n"
 "Generated-By: pygettext.py 1.5\n"
 
 
@@ -149,11 +149,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: sabnzbd/api.py:1477 # sabnzbd/interface.py:2178
+#: sabnzbd/api.py:1477 # sabnzbd/interface.py:2181
 msgid "WARNING:"
 msgstr ""
 
-#: sabnzbd/api.py:1477 # sabnzbd/interface.py:2178 # sabnzbd/interface.py:2278
+#: sabnzbd/api.py:1477 # sabnzbd/interface.py:2181 # sabnzbd/interface.py:2281
 msgid "ERROR:"
 msgstr ""
 
@@ -343,15 +343,19 @@ msgstr ""
 msgid "Cannot find email templates in %s"
 msgstr ""
 
-#: sabnzbd/emailer.py:179
-msgid "Invalid encoding of email template %s"
+#: sabnzbd/emailer.py:180
+msgid "No recipients given, no email sent"
 msgstr ""
 
 #: sabnzbd/emailer.py:182
+msgid "Invalid encoding of email template %s"
+msgstr ""
+
+#: sabnzbd/emailer.py:185
 msgid "No email templates found"
 msgstr ""
 
-#: sabnzbd/emailer.py:227
+#: sabnzbd/emailer.py:230
 msgid ""
 "To: %s\n"
 "From: %s\n"
@@ -441,85 +445,85 @@ msgstr ""
 msgid "&nbsp<br />SABnzbd shutdown finished.<br />Wait for about 5 second and then click the button below.<br /><br /><strong><a href=\"..\">Refresh</a></strong><br />"
 msgstr ""
 
-#: sabnzbd/interface.py:1577 [Used as default Feed name in Config->RSS] # sabnzbd/skintext.py:487 [Config->RSS, tab header]
+#: sabnzbd/interface.py:1579 [Used as default Feed name in Config->RSS] # sabnzbd/skintext.py:487 [Config->RSS, tab header]
 msgid "Feed"
 msgstr ""
 
-#: sabnzbd/interface.py:1789 # sabnzbd/skintext.py:81
+#: sabnzbd/interface.py:1792 # sabnzbd/skintext.py:81
 msgid "Daily"
 msgstr ""
 
-#: sabnzbd/interface.py:1790 # sabnzbd/skintext.py:82
+#: sabnzbd/interface.py:1793 # sabnzbd/skintext.py:82
 msgid "Monday"
 msgstr ""
 
-#: sabnzbd/interface.py:1791 # sabnzbd/skintext.py:83
+#: sabnzbd/interface.py:1794 # sabnzbd/skintext.py:83
 msgid "Tuesday"
 msgstr ""
 
-#: sabnzbd/interface.py:1792 # sabnzbd/skintext.py:84
+#: sabnzbd/interface.py:1795 # sabnzbd/skintext.py:84
 msgid "Wednesday"
 msgstr ""
 
-#: sabnzbd/interface.py:1793 # sabnzbd/skintext.py:85
+#: sabnzbd/interface.py:1796 # sabnzbd/skintext.py:85
 msgid "Thursday"
 msgstr ""
 
-#: sabnzbd/interface.py:1794 # sabnzbd/skintext.py:86
+#: sabnzbd/interface.py:1797 # sabnzbd/skintext.py:86
 msgid "Friday"
 msgstr ""
 
-#: sabnzbd/interface.py:1795 # sabnzbd/skintext.py:87
+#: sabnzbd/interface.py:1798 # sabnzbd/skintext.py:87
 msgid "Saturday"
 msgstr ""
 
-#: sabnzbd/interface.py:1796 # sabnzbd/skintext.py:88
+#: sabnzbd/interface.py:1799 # sabnzbd/skintext.py:88
 msgid "Sunday"
 msgstr ""
 
-#: sabnzbd/interface.py:2170
+#: sabnzbd/interface.py:2173
 msgid "&nbsp;Resolving address"
 msgstr ""
 
-#: sabnzbd/interface.py:2278
+#: sabnzbd/interface.py:2281
 msgid "Incorrect parameter"
 msgstr ""
 
-#: sabnzbd/interface.py:2278 # sabnzbd/interface.py:2304
-#: sabnzbd/interface.py:2328 # sabnzbd/interface.py:2345
-#: sabnzbd/interface.py:2430 # sabnzbd/interface.py:2449 # sabnzbd/skintext.py:99 [Generic "Back" button]
+#: sabnzbd/interface.py:2281 # sabnzbd/interface.py:2307
+#: sabnzbd/interface.py:2331 # sabnzbd/interface.py:2348
+#: sabnzbd/interface.py:2433 # sabnzbd/interface.py:2452 # sabnzbd/skintext.py:99 [Generic "Back" button]
 msgid "Back"
 msgstr ""
 
-#: sabnzbd/interface.py:2345
+#: sabnzbd/interface.py:2348
 msgid "Job \"%s\" was re-added to the queue"
 msgstr ""
 
-#: sabnzbd/interface.py:2430
+#: sabnzbd/interface.py:2433
 msgid "Jobs marked with a '*' will not be automatically downloaded."
 msgstr ""
 
-#: sabnzbd/interface.py:2430 # sabnzbd/skintext.py:501 [Config->RSS section header]
+#: sabnzbd/interface.py:2433 # sabnzbd/skintext.py:501 [Config->RSS section header]
 msgid "Matched"
 msgstr ""
 
-#: sabnzbd/interface.py:2431
+#: sabnzbd/interface.py:2434
 msgid "Not matched"
 msgstr ""
 
-#: sabnzbd/interface.py:2431 # sabnzbd/skintext.py:503 [Config->RSS section header]
+#: sabnzbd/interface.py:2434 # sabnzbd/skintext.py:503 [Config->RSS section header]
 msgid "Downloaded"
 msgstr ""
 
-#: sabnzbd/interface.py:2449
+#: sabnzbd/interface.py:2452
 msgid "Downloaded so far"
 msgstr ""
 
-#: sabnzbd/interface.py:2498 # sabnzbd/interface.py:2502
+#: sabnzbd/interface.py:2501 # sabnzbd/interface.py:2505
 msgid "Incorrect value for %s: %s"
 msgstr ""
 
-#: sabnzbd/interface.py:2528 # sabnzbd/skintext.py:540
+#: sabnzbd/interface.py:2531 # sabnzbd/skintext.py:540
 msgid "Test Notification"
 msgstr ""
 
@@ -1214,23 +1218,23 @@ msgstr ""
 msgid "Could not compile regex: %s"
 msgstr ""
 
-#: sabnzbd/rss.py:240 [Error message] # sabnzbd/rss.py:242
+#: sabnzbd/rss.py:264 [Error message] # sabnzbd/rss.py:266
 msgid "Incorrect RSS feed description \"%s\""
 msgstr ""
 
-#: sabnzbd/rss.py:299 # sabnzbd/rss.py:311
+#: sabnzbd/rss.py:323 # sabnzbd/rss.py:335
 msgid "Failed to retrieve RSS from %s: %s"
 msgstr ""
 
-#: sabnzbd/rss.py:305
+#: sabnzbd/rss.py:329
 msgid "Do not have valid authentication for feed %s"
 msgstr ""
 
-#: sabnzbd/rss.py:315
+#: sabnzbd/rss.py:339
 msgid "RSS Feed %s was empty"
 msgstr ""
 
-#: sabnzbd/rss.py:630 [Warning message]
+#: sabnzbd/rss.py:640 [Warning message]
 msgid "Empty RSS entry found (%s)"
 msgstr ""
 
