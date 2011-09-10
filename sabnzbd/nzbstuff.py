@@ -63,13 +63,14 @@ ArticleMapper = (
     ('art_id',    'art_id'),
     ('bytes',     'bytes'),
     ('partnum',   'partnum'),
-    ('nzf',       'nzf')
+    ('nzf',       'nzf_id'),
+    ('nzo',       'nzo_id')
 )
 
 class Article(TryList):
     """ Representation of one article
     """
-    def __init__ (self, article, bytes, partnum, nzf):
+    def __init__ (self, article, bytes, partnum, nzf_id, nzo_id):
         TryList.__init__(self)
 
         self.fetcher = None
@@ -80,7 +81,17 @@ class Article(TryList):
         self.bytes = bytes
         self.partnum = partnum
         self.tries = 0 # Try count
-        self.nzf = nzf
+        self.nzf_id = nzf_id
+        self.nzo_id = nzo_id
+        self.__finder = sabnzbd.nzbqueue.NzbQueue.do.find_nzo
+
+    @property
+    def nzo(self):
+        return self.__finder(self.nzo_id)
+
+    @property
+    def nzf(self):
+        return self.__finder(self.nzo_id).files_table.get(self.nzf_id)
 
     def get_article(self, server):
         """ Return article when appropriate for specified server """
@@ -119,6 +130,7 @@ class Article(TryList):
         self.fetcher = None
         self.allow_fill_server = False
         self.tries = 0
+        self.__finder = sabnzbd.nzbqueue.NzbQueue.do.find_nzo
 
     def __repr__(self):
         return "<Article: article=%s, bytes=%s, partnum=%s, art_id=%s>" % \
@@ -145,7 +157,7 @@ NzbFileMapper = (
     ('_NzbFile__bytes',              'bytes'),
     ('_NzbFile__bytes_left',         'bytes_left'),
     ('_NzbFile__article_count',      'article_count'),
-    ('nzo',                          'nzo'),
+    ('nzo',                          'nzo_id'),
     ('nzf_id',                       'nzf_id'),
     ('deleted',                      'deleted'),
     ('valid',                        'valid'),
@@ -186,7 +198,7 @@ class NzbFile(TryList):
         self.bytes_left = bytes
         self.article_count = 0
 
-        self.nzo = nzo
+        self.nzo_id = nzo.nzo_id
         self.nzf_id = sabnzbd.get_new_id("nzf", nzo.workpath)
         self.deleted = False
 
@@ -200,6 +212,12 @@ class NzbFile(TryList):
         if self.valid and self.nzf_id:
             sabnzbd.save_data(article_db, self.nzf_id, nzo.workpath)
 
+        self.__finder = sabnzbd.nzbqueue.NzbQueue.do.find_nzo
+
+    @property
+    def nzo(self):
+        return self.__finder(self.nzo_id)
+
     def finish_import(self):
         """ Load the article objects from disk """
         logging.debug("Finishing import on %s", self.subject)
@@ -210,7 +228,7 @@ class NzbFile(TryList):
                 art_id = article_db[partnum][0]
                 bytes = article_db[partnum][1]
 
-                article = Article(art_id, bytes, partnum, self)
+                article = Article(art_id, bytes, partnum, self.nzf_id, self.nzo_id)
 
                 self.articles.append(article)
                 self.decodetable[partnum] = article
@@ -299,6 +317,7 @@ class NzbFile(TryList):
             except KeyError:
                 # Handle new attributes
                 self.__dict__[tup[1]] = None
+        self.__finder = sabnzbd.nzbqueue.NzbQueue.do.find_nzo
         TryList.__init__(self)
 
     def __repr__(self):
@@ -529,6 +548,7 @@ class NzbObject(TryList):
             work_name = sanitize_foldername(work_name)
         work_name, password = scan_password(work_name)
 
+        self.nzo_id = None
         self.work_name = work_name
         self.final_name = work_name
 
@@ -573,8 +593,6 @@ class NzbObject(TryList):
         self.dupe_table = {}
 
         self.saved_articles = []
-
-        self.nzo_id = None
 
         self.futuretype = futuretype
         self.deleted = False
@@ -647,6 +665,8 @@ class NzbObject(TryList):
         dummy, self.work_name = os.path.split(wdir)
         self.created = True
 
+        self.nzo_id = sabnzbd.nzbqueue.NzbQueue.do.create_nzo_id(self.workpath)
+
         # Must create a lower level XML parser because we must
         # disable the reading of the DTD file from newzbin.com
         # by setting "feature_external_ges" to 0.
@@ -670,6 +690,7 @@ class NzbObject(TryList):
                               filename, err.getMessage(), err.getLineNumber())
                 raise ValueError
             except Exception, err:
+                logging.debug("Traceback: ", exc_info = True)
                 self.purge_data(keep_basic=reuse)
                 logging.warning(Ta('Invalid NZB file %s, skipping (reason=%s, line=%s)'), filename, err, 0)
                 raise ValueError

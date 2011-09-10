@@ -276,11 +276,14 @@ class NzbQueue(TryList):
         else:
             return None
 
+    def create_nzo_id(self, workpath):
+        return sabnzbd.get_new_id('nzo', workpath, self.__nzo_table)
+
     @synchronized(NZBQUEUE_LOCK)
     def add(self, nzo, save=True, quiet=False):
         assert isinstance(nzo, NzbObject)
         if not nzo.nzo_id:
-            nzo.nzo_id = sabnzbd.get_new_id('nzo', nzo.workpath, self.__nzo_table)
+            nzo.nzo_id = self.create_nzo_id(nzo.workpath)
 
         # If no files are to be downloaded anymore, send to postproc
         if not nzo.files and not nzo.futuretype:
@@ -769,6 +772,9 @@ class NzbQueue(TryList):
             if nzo.futuretype and (msgid.isdigit() or len(msgid)==5):
                 lst.append((msgid, nzo))
         return lst
+
+    def find_nzo(self, nzo_id):
+        return self.__nzo_table.get(nzo_id)
 
     def __repr__(self):
         return "<NzbQueue>"
