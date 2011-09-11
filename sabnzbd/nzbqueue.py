@@ -337,7 +337,7 @@ class NzbQueue(TryList):
     @synchronized(NZBQUEUE_LOCK)
     def remove(self, nzo_id, add_to_history = True, save=True, cleanup=True, keep_basic=False, del_files=False):
         if nzo_id in self.__nzo_table:
-            nzo = self.__nzo_table.pop(nzo_id)
+            nzo = self.__nzo_table[nzo_id]
             nzo.deleted = True
             self.__nzo_list.remove(nzo)
 
@@ -353,6 +353,8 @@ class NzbQueue(TryList):
 
             elif cleanup:
                 self.cleanup_nzo(nzo, keep_basic, del_files)
+
+            self.__nzo_table.pop(nzo_id)
 
             if save:
                 self.save(nzo)
