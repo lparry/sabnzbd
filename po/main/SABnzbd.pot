@@ -12,7 +12,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 7bit\n"
-"POT-Creation-Date: 2012-05-17 18:52+West-Europa (zomertijd)\n"
+"POT-Creation-Date: 2012-05-17 22:45+West-Europa (zomertijd)\n"
 "Generated-By: pygettext.py 1.5\n"
 
 
@@ -44,11 +44,11 @@ msgstr ""
 msgid "Please be aware the 0.0.0.0 hostname will need an IPv6 address for external access"
 msgstr ""
 
-#: SABnzbd.py:1368 [Warning message]
+#: SABnzbd.py:1361 [Warning message]
 msgid "Disabled HTTPS because of missing CERT and KEY files"
 msgstr ""
 
-#: SABnzbd.py:1659 # sabnzbd/osxmenu.py:770
+#: SABnzbd.py:1652 # sabnzbd/osxmenu.py:770
 msgid "SABnzbd shutdown finished"
 msgstr ""
 
@@ -3947,19 +3947,19 @@ msgstr ""
 msgid "Go to SABnzbd"
 msgstr ""
 
-#: sabnzbd/skintext.py:855 [Wizard step] # sabnzbd/wizard.py:93
+#: sabnzbd/skintext.py:855 [Wizard step] # sabnzbd/wizard.py:95
 msgid "Step One"
 msgstr ""
 
-#: sabnzbd/skintext.py:856 [Wizard step] # sabnzbd/wizard.py:136
+#: sabnzbd/skintext.py:856 [Wizard step] # sabnzbd/wizard.py:138
 msgid "Step Two"
 msgstr ""
 
-#: sabnzbd/skintext.py:857 [Wizard step] # sabnzbd/wizard.py:174
+#: sabnzbd/skintext.py:857 [Wizard step] # sabnzbd/wizard.py:176
 msgid "Step Three"
 msgstr ""
 
-#: sabnzbd/skintext.py:858 [Wizard step] # sabnzbd/wizard.py:203
+#: sabnzbd/skintext.py:858 [Wizard step] # sabnzbd/wizard.py:205
 msgid "Step Four"
 msgstr ""
 
