@@ -54,7 +54,7 @@ class SABTrayThread(SysTrayIconThread):
         text = "SABnzbd"
 
         codepage = sabnzbd.lang.CODEPAGE
-        logging.debug('WinTray uses codepage %s', codepage)
+        logging.debug('SysTray uses codepage %s', codepage)
         menu_options = (
             (T('Show interface'), None, self.browse),
             (T('Open complete folder'), None, self.opencomplete),
@@ -113,7 +113,7 @@ class SABTrayThread(SysTrayIconThread):
 
     # menu handler
     def restart(self, icon):
-        self.hover_text = T('Restart').encode(codepage, 'replace')
+        self.hover_text = T('Restart').encode(sabnzbd.lang.CODEPAGE, 'replace')
         sabnzbd.halt()
         cherrypy.engine.restart()
 
@@ -122,7 +122,7 @@ class SABTrayThread(SysTrayIconThread):
         sabnzbd.cfg.username.set('')
         sabnzbd.cfg.password.set('')
         sabnzbd.config.save_config()
-        self.hover_text = T('Restart').encode(codepage, 'replace')
+        self.hover_text = T('Restart').encode(sabnzbd.lang.CODEPAGE, 'replace')
         sabnzbd.halt()
         cherrypy.engine.restart()
 
@@ -137,7 +137,7 @@ class SABTrayThread(SysTrayIconThread):
 
     # menu handler - adapted from interface.py
     def shutdown(self, icon):
-        self.hover_text = T('Shutdown').encode(codepage, 'replace')
+        self.hover_text = T('Shutdown').encode(sabnzbd.lang.CODEPAGE, 'replace')
         sabnzbd.halt()
         cherrypy.engine.exit()
         sabnzbd.SABSTOP = True
