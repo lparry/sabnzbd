@@ -385,10 +385,6 @@ if target == 'app':
     # build SABnzbd.py
     sys.argv[1] = 'py2app'
 
-    if not apple_py:
-        print 'UNICODE for ActiveState Python not tested yet!'
-        exit(1)
-
     APP = ['SABnzbd.py']
     DATA_FILES = ['interfaces', 'locale', 'email', ('', glob.glob("osx/resources/*"))]
 
