@@ -201,6 +201,7 @@ def patch_nsis():
     """ Patch translation into the NSIS script
     """
     RE_NSIS = re.compile(r'^(\s*LangString\s+\w+\s+\$\{LANG_)(\w+)\}\s+(".*)', re.I)
+    RE_NSIS = re.compile(r'^(\s*LangString\s+)(\w+)(\s+\$\{LANG_)(\w+)\}\s+(".*)', re.I)
     languages = [os.path.split(path)[1] for path in glob.glob(os.path.join(MO_DIR, '*'))]
 
     src = open(NSIS, 'r')
@@ -209,8 +210,10 @@ def patch_nsis():
         m = RE_NSIS.search(line)
         if m:
             leader = m.group(1)
-            langname = m.group(2).upper()
-            text = m.group(3).strip('"\n')
+            item = m.group(2)
+            rest = m.group(3)
+            langname = m.group(4).upper()
+            text = m.group(5).strip('"\n')
             if langname == 'ENGLISH':
                 # Write back old content
                 new.append(line)
@@ -220,13 +223,16 @@ def patch_nsis():
                     lng = LanguageTable.get(lcode)
                     if lng and lcode != 'en':
                         lng = lng[0].decode('utf-8').encode('latin-1').upper()
-                        trans = gettext.translation(DOMAIN_N, MO_DIR, [lcode], fallback=False, codeset='latin-1')
-                        # The unicode flag will make _() return Unicode
-                        trans.install(unicode=True, names=['lgettext'])
-                        trans = _(text).encode('utf-8')
-                        trans = trans.replace('\r', '').replace('\n', '\\r\\n')
-                        trans = trans.replace('\\', '$\\').replace('"', '$\\"')
-                        line = '%s%s} "%s"\n' % (leader, lng, trans)
+                        if item == 'MsgLangCode':
+                            trans = lcode
+                        else:
+                            trans = gettext.translation(DOMAIN_N, MO_DIR, [lcode], fallback=False, codeset='latin-1')
+                            # The unicode flag will make _() return Unicode
+                            trans.install(unicode=True, names=['lgettext'])
+                            trans = _(text).encode('utf-8')
+                            trans = trans.replace('\r', '').replace('\n', '\\r\\n')
+                            trans = trans.replace('\\', '$\\').replace('"', '$\\"')
+                        line = '%s%s%s%s} "%s"\n' % (leader, item, rest, lng, trans)
                         new.append(line)
                     elif lng is None:
                         print 'Warning: unsupported language %s (%s), add to table in this script' % (langname, lcode)

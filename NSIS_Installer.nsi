@@ -23,7 +23,7 @@
 !include "registerExtension.nsh"
 !include "LogicLib.nsh"
 !include "WinVer.nsh"
-!include "WinSxSQuery.nsh"       
+!include "WinSxSQuery.nsh"
 !include "nsProcess.nsh"
 
 ;------------------------------------------------------------------
@@ -314,6 +314,7 @@ File /r "dist\*"
 
 
 WriteRegStr HKEY_LOCAL_MACHINE "SOFTWARE\SABnzbd" "" "$INSTDIR"
+WriteRegStr HKEY_LOCAL_MACHINE "SOFTWARE\SABnzbd" "Installer Language" "$(MsgLangCode)"
 WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\SABnzbd" "DisplayName" "SABnzbd ${SAB_VERSION}"
 WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\SABnzbd" "UninstallString" '"$INSTDIR\uninstall.exe"'
 WriteRegStr HKEY_LOCAL_MACHINE "Software\Microsoft\Windows\CurrentVersion\Uninstall\SABnzbd" "DisplayVersion" '${SAB_VERSION}'
@@ -438,6 +439,7 @@ SectionEnd
 
   LangString MsgRemoveOld2  ${LANG_ENGLISH} "Your settings and data will be preserved."
 
+  LangString MsgLangCode    ${LANG_ENGLISH} "en"
 
 Function un.onInit
   !insertmacro MUI_UNGETLANGUAGE
