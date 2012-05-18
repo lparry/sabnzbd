@@ -33,7 +33,6 @@ from sabnzbd.api import Ttemplate
 import sabnzbd.interface
 import sabnzbd.config as config
 import sabnzbd.cfg as cfg
-import util.apireg
 
 #------------------------------------------------------------------------------
 class Wizard(object):
@@ -54,6 +53,7 @@ class Wizard(object):
         info['number'] = 0
         lng = None
         if sabnzbd.WIN32:
+            import util.apireg
             lng = util.apireg.get_install_lng()
             logging.debug('Installer language code "%s"', lng)
         info['lang'] = lng or cfg.language()
