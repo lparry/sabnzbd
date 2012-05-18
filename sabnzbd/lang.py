@@ -42,7 +42,7 @@ __all__ = ['set_locale_info', 'set_language', 'list_languages']
 
 _DOMAIN = ''        # Holds translation domain
 _LOCALEDIR = ''     # Holds path to the translation base folder
-CODEPAGE = '850'
+CODEPAGE = '1252'
 
 
 def set_locale_info(domain, localedir):
@@ -58,7 +58,7 @@ def set_language(language=None):
     """
     global CODEPAGE
     if not language: language = ''
-    CODEPAGE = str(LanguageTable.get(language, (0,0,0))[2] or 850)
+    CODEPAGE = str(LanguageTable.get(language, (0,0,0))[2] or 1252)
 
     # 'codeset' will determine the output of lgettext
     lng = gettext.translation(_DOMAIN, _LOCALEDIR, [language], fallback=True, codeset='latin-1')
