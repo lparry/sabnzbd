@@ -68,10 +68,8 @@ def endswith_ext(path):
 
 
 def move_to_parent_folder(workdir):
-    """ Move content of 'workdir' to 'workdir/..' possibly skipping some files
-        If afterwards the directory is not empty, rename it to _JUNK_folder, else remove it.
+    """ Move content of 'workdir' to 'workdir/..' (except marker file)
     """
-    skipped = False # Keep track of any skipped files
     path1 = os.path.abspath(os.path.normpath(os.path.join(workdir, '..'))) #move things to the folder below
 
     for root, dirs, files in os.walk(workdir):
@@ -1066,11 +1064,12 @@ def stripFolders(folders):
 def rename_similar(path, file, name):
     logging.debug('Renaming files similar to: %s to %s', file, name)
     file_prefix, ext = os.path.splitext(file)
+    file_prefix = file_prefix.lower()
     for root, dirs, files in os.walk(path):
         for _file in files:
             fpath = os.path.join(root, _file)
             tmp, ext = os.path.splitext(_file)
-            if tmp == file_prefix:
+            if tmp.lower() == file_prefix:
                 newname = "%s%s" % (name,ext)
                 newname = newname.replace('%fn',tmp)
                 newpath = os.path.join(path, newname)
