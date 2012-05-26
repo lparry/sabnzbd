@@ -41,7 +41,7 @@ from sabnzbd.constants import sample_match, GIGI, ATTRIB_FILE, JOB_ADMIN, \
 from sabnzbd.misc import to_units, cat_to_opts, cat_convert, sanitize_foldername, \
                          get_unique_path, get_admin_path, remove_all, format_source_url, \
                          sanitize_filename, globber, sanitize_foldername, int_conv, \
-                         set_permissions
+                         set_permissions, format_time_string
 import sabnzbd.cfg as cfg
 from sabnzbd.trylist import TryList
 from sabnzbd.encoding import unicoder, platform_encode, latin1, name_fixer
@@ -1435,36 +1435,6 @@ def split_filename(name):
         return "", ""
     else:
         return name.strip(), ""
-
-
-def format_time_string(seconds, days=0):
-    """ Given seconds and days, return formatted day/hour/min/sec string
-    """
-    def unit(n, single):
-        if n == 1:
-            return n, Tx(single)
-        else:
-            return n, Tx(single + 's')
-    try:
-        seconds = int(seconds)
-    except ValueError:
-        seconds = 0
-
-    completestr = ''
-    if days:
-        completestr += '%s %s ' % unit(days, 'day')
-    if (seconds/3600) >= 1:
-        completestr += '%s %s ' % unit(seconds/3600, 'hour')
-        seconds -= (seconds/3600)*3600
-    if (seconds/60) >= 1:
-        completestr += '%s %s ' % unit(seconds/60, 'minute')
-        seconds -= (seconds/60)*60
-    if seconds > 0:
-        completestr += '%s %s ' % unit(seconds, 'second')
-    else:
-        completestr += '%s %s' % unit(0, 'second')
-
-    return completestr.strip()
 
 
 RE_PASSWORD1 = re.compile(r'([^/\\]+)[/\\](.+)')
