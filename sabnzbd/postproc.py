@@ -772,3 +772,13 @@ def del_marker(path):
         except:
             logging.info('Cannot remove marker file %s', path)
             logging.info("Traceback: ", exc_info = True)
+
+
+def remove_from_list(name, lst):
+    if name:
+        name = os.path.split(name)[1]
+        for n in xrange(len(lst)):
+            if lst[n].endswith(name):
+                logging.debug('Popping %s', lst[n])
+                lst.pop(n)
+                return
