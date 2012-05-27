@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: sabnzbd\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-07 20:21+0000\n"
-"PO-Revision-Date: 2012-05-12 16:21+0000\n"
+"PO-Revision-Date: 2012-05-17 15:48+0000\n"
 "Last-Translator: XsLiDian <xslidian@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-12 19:56+0000\n"
-"X-Generator: Launchpad (build 15225)\n"
+"X-Launchpad-Export-Date: 2012-05-18 05:04+0000\n"
+"X-Generator: Launchpad (build 15259)\n"
 
 #: SABnzbd.py:301 [Error message]
 msgid "Failed to start web-interface"
@@ -1019,7 +1019,7 @@ msgstr "重启"
 
 #: sabnzbd/osxmenu.py:277 # sabnzbd/sabtray.py:59
 msgid "Restart without login"
-msgstr "无登录重新启动"
+msgstr "清除登录身份凭据设置并重新启动"
 
 #: sabnzbd/osxmenu.py:290
 msgid "Quit"
@@ -1754,7 +1754,7 @@ msgstr "系统负载"
 
 #: sabnzbd/skintext.py:144
 msgid "WARNINGS"
-msgstr "条 *警告*"
+msgstr "警告信息"
 
 #: sabnzbd/skintext.py:145
 msgid "New release %s available at"
@@ -2010,15 +2010,15 @@ msgstr "尺寸"
 
 #: sabnzbd/skintext.py:229 [Button to delete all failed jobs in History]
 msgid "Purge Failed NZBs"
-msgstr "清楚失败 NZB"
+msgstr "清除失败 NZB"
 
 #: sabnzbd/skintext.py:230 [Button to delete all failed jobs in History, including files]
 msgid "Purge Failed NZBs & Delete Files"
-msgstr "清楚失败 NZB 并删除文件"
+msgstr "清除失败 NZB 并删除文件"
 
 #: sabnzbd/skintext.py:231 [Button to delete all completed jobs in History]
 msgid "Purge Completed NZBs"
-msgstr "清楚已完成 NZB"
+msgstr "清除已完成 NZB"
 
 #: sabnzbd/skintext.py:232 [Button to add NZB to failed job in History]
 msgid "Optional Supplemental NZB"
@@ -4177,3 +4177,36 @@ msgstr "访问 nzbmatrix 服务器时出现问题 (%s)"
 
 #~ msgid "Email Notifications"
 #~ msgstr "Email 通知"
+
+#~ msgid ""
+#~ "If you have an account at <strong>www.newzbin.com</strong>, you can enter "
+#~ "your account info here.<br />This will unlock extra functionality."
+#~ msgstr "如果您有 <strong>www.newzbin.com</strong> 账号，可以在这里输入账号信息。<br />这将解锁额外功能。"
+
+#~ msgid ""
+#~ "Error Fetching msgid %s from www.newzbin.com - Please make sure your "
+#~ "Username and Password are set"
+#~ msgstr "从 www.newzbin.com 装取 msgid %s 时出错 - 请确保已设置“用户名”与“密码”"
+
+#~ msgid "Does the quotum get reset each day, week or month?"
+#~ msgstr "配额会每天、每周或每月重置吗?"
+
+#~ msgid "Quotum period"
+#~ msgstr "配额周期"
+
+#~ msgid ""
+#~ "On which day of the month or week (1=Monday) does your ISP reset the quotum? "
+#~ "(Optionally with hh:mm)"
+#~ msgstr "您的 ISP 会在每月或每周的哪天 (1=星期一)  重置配额? (可选加上 hh:mm)"
+
+#~ msgid "Should downloading resume after the quotum is reset?"
+#~ msgstr "配额重置后是否自动续传下载?"
+
+#~ msgid "Quotum"
+#~ msgstr "配额"
+
+#~ msgid "Quotum left"
+#~ msgstr "剩余配额"
+
+#~ msgid "fetching msgid %s from www.newzbin.com"
+#~ msgstr "正在从 www.newzbin.com 装取 msgid %s"
