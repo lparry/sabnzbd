@@ -81,10 +81,7 @@ def init():
             logging.warning(Ta('Bad schedule %s at %s:%s'), action_name, m, h)
             continue
 
-        if d.isdigit():
-            d = [int(d)]
-        else:
-            d = range(1, 8)
+        d = [int(i) for i in d]
 
         if action_name == 'resume':
             action = scheduled_resume

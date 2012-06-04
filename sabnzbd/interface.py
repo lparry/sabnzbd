@@ -1805,7 +1805,7 @@ class ConfigScheduling(object):
 
         actions = []
         actions.extend(_SCHED_ACTIONS)
-        days = get_days()
+        day_names = get_days()
         conf['schedlines'] = []
         snum = 1
         conf['taskinfo'] = []
@@ -1813,7 +1813,7 @@ class ConfigScheduling(object):
             line = ev[3]
             conf['schedlines'].append(line)
             try:
-                m, h, day, action = line.split(' ', 3)
+                m, h, day_numbers, action = line.split(' ', 3)
             except:
                 continue
             action = action.strip()
@@ -1826,7 +1826,10 @@ class ConfigScheduling(object):
                     act = ''
                 if act in ('enable_server', 'disable_server'):
                     action = Ttemplate("sch-" + act) + ' ' + server
-            item = (snum, h, '%02d' % int(m), days.get(day, '**'), action)
+
+            days_of_week = ", ".join([day_names.get(char, "**") for char in day_numbers])
+
+            item = (snum, h, '%02d' % int(m), days_of_week, action)
             conf['taskinfo'].append(item)
             snum += 1
 
@@ -1851,7 +1854,7 @@ class ConfigScheduling(object):
 
         minute = kwargs.get('minute')
         hour = kwargs.get('hour')
-        dayofweek = kwargs.get('dayofweek')
+        days_of_week = ''.join([str(x) for x in kwargs.get('daysofweek')])
         action = kwargs.get('action')
         arguments = kwargs.get('arguments')
 
@@ -1861,7 +1864,7 @@ class ConfigScheduling(object):
         elif arguments in ('off','disable'):
             arguments = '0'
 
-        if minute and hour  and dayofweek and action:
+        if minute and hour  and days_of_week and action:
             if (action == 'speedlimit') and arguments.isdigit():
                 pass
             elif action in _SCHED_ACTIONS:
@@ -1879,7 +1882,7 @@ class ConfigScheduling(object):
             if action:
                 sched = cfg.schedules()
                 sched.append('%s %s %s %s %s' %
-                             (minute, hour, dayofweek, action, arguments))
+                             (minute, hour, days_of_week, action, arguments))
                 cfg.schedules.set(sched)
 
         config.save_config()
